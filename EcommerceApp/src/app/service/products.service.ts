@@ -15,7 +15,7 @@ export class ProductsService {
     return this.httpClient.get(this.baseURL);
   }
 
-  getUserById(id: number){
+  getProductById(id: number){
     return this.httpClient.get(`${this.baseURL}/${id}`, { observe: 'response' });
   }
 
