@@ -1,3 +1,5 @@
 <div class="product-container">
-    <app-product-item></app-product-item>
+    <div class="product-index">
+    <app-product-item  *ngFor="let item of products" [product]="item"></app-product-item>
+    </div>
 </div>
