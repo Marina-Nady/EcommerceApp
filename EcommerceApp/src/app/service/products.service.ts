@@ -9,7 +9,7 @@ export class ProductsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  baseURL = "http://localhost:3000/products";
+  baseURL = "https://fakestoreapi.com/products";
 
   getProducts(){
     return this.httpClient.get(this.baseURL);
