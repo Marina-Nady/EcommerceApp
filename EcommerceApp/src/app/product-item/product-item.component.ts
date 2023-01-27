@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ProductsService } from '../service/products.service';
+import {  Router } from '@angular/router';
+
 
 
 @Component({
@@ -7,6 +10,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent {
+  
+  
   @Input() product: any;
 
 }
