@@ -1,1 +1,24 @@
-<p>cart works!</p>
+<div class="cart-container">
+    <div class="cart-panel">
+        <div class="cart-item" *ngFor="let item of itemsList">
+            <img src="{{item.image}}">
+            <div class="cart-item-details">
+                <h1>{{item.title}}</h1>
+                <p>{{item.price}}</p>
+                <label>Amount:</label>
+                <input type="number" [value]="item.number" class="number-input">
+            </div>
+        </div>
+        <h1>Total: ${{totalCost}}</h1>
+    </div>
+    <form>
+        <label>Full name</label>
+        <input type="text">
+        <label>Address</label>
+        <input type="text">            
+        <label>Credit card number</label>
+        <input type="text">
+        <input type="submit">
+    </form>
+
+</div>
