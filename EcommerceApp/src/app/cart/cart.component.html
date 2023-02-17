@@ -1,15 +1,17 @@
 <div class="cart-container">
     <div class="cart-panel">
-        <div class="cart-item" *ngFor="let item of itemsList">
+        <div class="cart-item" *ngFor="let item of itemsList" >
             <img src="{{item.image}}">
             <div class="cart-item-details">
                 <h1>{{item.title}}</h1>
                 <p>{{item.price}}</p>
                 <label>Amount:</label>
-                <input type="number"  [(ngModel)]="num" class="number-input">
+                <!-- <input type="number"  [(ngModel)]="num" class="number-input" > -->
+                <input #quantity type='number' name='quantity' class='qty' value="{{item.number}}" (click)="updateTotal(item.id, quantity.value)"/>
+
             </div>
         </div>
-        <h1>Total: ${{num * price}}</h1>
+        <h1>Total: ${{totalCost}}</h1>
     </div>
     <form>
         <label>Full name</label>

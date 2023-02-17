@@ -14,6 +14,11 @@ export class CartService {
   addToCart(item:any) {
     this.cartList.push(item)
     return this.cartList
+  }
+
+  deleteFromCart(item:any){
+    this.cartList = this.cartList.filter((i:any)=>i.id != item.id )
+    return this.cartList
 
   }
 
