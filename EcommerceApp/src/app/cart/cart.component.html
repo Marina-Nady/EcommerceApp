@@ -6,10 +6,10 @@
                 <h1>{{item.title}}</h1>
                 <p>{{item.price}}</p>
                 <label>Amount:</label>
-                <input type="number" [value]="item.number" class="number-input">
+                <input type="number"  [(ngModel)]="num" class="number-input">
             </div>
         </div>
-        <h1>Total: ${{totalCost}}</h1>
+        <h1>Total: ${{num * price}}</h1>
     </div>
     <form>
         <label>Full name</label>

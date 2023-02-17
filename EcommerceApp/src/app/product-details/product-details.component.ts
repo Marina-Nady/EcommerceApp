@@ -1,6 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component,Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../service/products.service';
+import { CartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -14,7 +15,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy{
   flag: number = 1;
   serviceToBeDestroyed: any;
 
-  constructor(activatedRoute: ActivatedRoute, private service: ProductsService, private router: Router) {
+  constructor(activatedRoute: ActivatedRoute, private service: ProductsService, private router: Router,private cartService: CartService) {
 
     this.productId = activatedRoute.snapshot.params['id'];
 
@@ -36,6 +37,20 @@ export class ProductDetailsComponent implements OnInit, OnDestroy{
         console.log(error);
       }
     )
+
+  }
+
+  @Input() piece: any = 1;
+  pieceNum: any = 1
+
+  getNum(e:any){
+    this.pieceNum = e.target.value
+  }
+
+  addToCart(product:any){
+    product.number = this.pieceNum
+    this.cartService.addToCart(product)
+    alert("Added!");
 
   }
 }
