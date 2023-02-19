@@ -1,3 +1,6 @@
+<app-success-msg *ngIf="showConfirm;else cart" [userInfo]="userInfo"></app-success-msg>
+
+<ng-template #cart>
 <div class="cart-container">
     <div class="cart-panel">
         <div class="cart-item" *ngFor="let item of itemsList" >
@@ -6,7 +9,6 @@
                 <h1>{{item.title}}</h1>
                 <p>{{item.price}}</p>
                 <label>Amount:</label>
-                <!-- <input type="number"  [(ngModel)]="num" class="number-input" > -->
                 <input #quantity type='number' name='quantity' class='qty' value="{{item.number}}" (click)="updateTotal(item.id, quantity.value)"/>
 
             </div>
@@ -15,12 +17,13 @@
     </div>
     <form>
         <label>Full name</label>
-        <input type="text">
+        <input type="text" (keyup)="getName($event)">
         <label>Address</label>
-        <input type="text">            
+        <input type="text" (keyup)="getAddress($event)">            
         <label>Credit card number</label>
-        <input type="text">
-        <input type="submit">
+        <input type="text" (keyup)="getCardNumber($event)">            
+        <input type="submit" (click)="sendForm()">
     </form>
 
 </div>
+</ng-template>

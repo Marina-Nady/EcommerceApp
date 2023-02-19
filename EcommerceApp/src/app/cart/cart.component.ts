@@ -12,6 +12,9 @@ export class CartComponent implements OnInit{
   num: any = 0
   price: any = 0
   quantity:any
+  cardNumber:any
+  userInfo: any = {}
+  showConfirm: any 
   constructor(private cartService: CartService) {
 
   }
@@ -42,6 +45,18 @@ export class CartComponent implements OnInit{
       }
     }
     item[0].number = number 
-
-}
+  }
+  getName(e:any){
+    this.userInfo.name = e.target.value
+  }
+  getAddress(e:any){
+    this.userInfo.address = e.target.value
+  }
+  getCardNumber(e:any){
+    this.userInfo.cardNumber = e.target.value
+  }
+  sendForm(){
+    this.userInfo.total = this.totalCost
+    this.showConfirm = true
+  }
 }
